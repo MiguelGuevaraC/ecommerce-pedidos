@@ -4,15 +4,6 @@ import { LayoutComponent } from './pages/admin/layout/layout.component';
 import { ProductsComponent } from './pages/admin/products/products.component';
 
 export const routes: Routes = [
-  // {
-  //   path:'menu',
-  //   title:'menu',
-  //   children:[
-
-  //   ]
-  // }
-
-  // LOGIN
   {
     path:'',
     redirectTo:'login',

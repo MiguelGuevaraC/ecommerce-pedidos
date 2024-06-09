@@ -1,1 +1,70 @@
-<p>products works!</p>
+<div class="container">
+  <div class="product-list">
+    <mat-card>
+      <mat-card-title>Productos</mat-card-title>
+      <mat-divider></mat-divider>
+      <div class="card-container">
+        <div class="card-column" *ngFor="let product of products">
+          <mat-card class="card-image">
+            <mat-card-header>
+              <mat-card-title>{{ product.name }}</mat-card-title>
+              <mat-card-subtitle>{{ product.category.name }}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-lg-image *ngIf="product.images && product.images.length > 0" [src]="getProductImage(product.images[0].route)" alt="{{ product.name }}">
+            <mat-card-content>
+              <p>{{ product.description }}</p>
+            </mat-card-content>
+
+            <mat-card-actions>
+              <button mat-button mat-raised-button mat-raised-button>
+                <mat-icon color="primary">edit</mat-icon>
+                <span>Modificar</span>
+              </button>
+              <button mat-button mat-raised-button  mat-raised-button>
+                <mat-icon color="warn">delete</mat-icon>
+                <span>Eliminar</span>
+              </button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+  <div class="product-form">
+    <mat-card>
+      <mat-card-title>Agregar nuevo producto</mat-card-title>
+      <mat-divider></mat-divider>
+      <form>
+        <mat-form-field appearance="fill">
+          <mat-label>Product Name</mat-label>
+          <input matInput placeholder="Product Name" [(ngModel)]="newProduct.name" name="name">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Description</mat-label>
+          <textarea matInput placeholder="Description" [(ngModel)]="newProduct.description" name="description"></textarea>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Purchase Price</mat-label>
+          <input matInput placeholder="Purchase Price" [(ngModel)]="newProduct.purchase_price" name="purchase_price" type="number">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Sale Price</mat-label>
+          <input matInput placeholder="Sale Price" [(ngModel)]="newProduct.sale_price" name="sale_price" type="number">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Stock</mat-label>
+          <input matInput placeholder="Stock" [(ngModel)]="newProduct.stock" name="stock" type="number">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Category</mat-label>
+          <mat-select [(ngModel)]="newProduct.category" name="category">
+            <mat-option *ngFor="let category of categories" [value]="category">
+              {{ category.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button mat-raised-button color="primary">Add Product</button>
+      </form>
+    </mat-card>
+  </div>
+</div>
