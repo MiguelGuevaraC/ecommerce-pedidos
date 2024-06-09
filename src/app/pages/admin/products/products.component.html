@@ -10,13 +10,11 @@
               <mat-card-title>{{ product.name }}</mat-card-title>
               <mat-card-subtitle>{{ product.category.name }}</mat-card-subtitle>
             </mat-card-header>
-            <div class="card-content-container">
-              <img mat-card-lg-image *ngIf="product.images && product.images.length > 0" [src]="getProductImage(product.images[0].route)" alt="{{ product.name }}">
-              <mat-card-content>
-                <p>{{ product.description }}</p>
-              </mat-card-content>
-            </div>
-            <mat-card-actions class="card-actions">
+            <img mat-card-lg-image *ngIf="product.images && product.images.length > 0" [src]="getProductImage(product.images[0].route)" alt="{{ product.name }}">
+            <mat-card-content>
+              <p>{{ product.description }}</p>
+            </mat-card-content>
+            <mat-card-actions>
               <button mat-button mat-raised-button>
                 <mat-icon color="primary">edit</mat-icon>
                 <span>Modificar</span>
@@ -35,7 +33,7 @@
     <mat-card>
       <mat-card-title>Agregar nuevo producto</mat-card-title>
       <mat-divider></mat-divider>
-      <form>
+      <form class="product-form-content">
         <mat-form-field appearance="fill">
           <mat-label>Product Name</mat-label>
           <input matInput placeholder="Product Name" [(ngModel)]="newProduct.name" name="name">
@@ -64,7 +62,9 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
-        <button mat-raised-button color="primary">Add Product</button>
+        <div class="add-button-container">
+          <button mat-raised-button color="primary">Add Product</button>
+        </div>
       </form>
     </mat-card>
   </div>
