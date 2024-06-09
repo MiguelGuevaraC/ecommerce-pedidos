@@ -1,3 +1,54 @@
 .example-spacer {
   flex: 1 1 auto;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card-column {
+  display: flex;
+  justify-content: center;
+  flex: 1 0 30%;
+  max-width: 33.333%;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 300px;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.stock-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.stock-selector button {
+  margin: 0 5px;
+}
+
+.stock-selector input {
+  width: 60px;
+  text-align: center;
+  font-size: 16px;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

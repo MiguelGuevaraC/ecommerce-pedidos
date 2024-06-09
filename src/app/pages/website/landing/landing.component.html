@@ -1,4 +1,4 @@
-<mat-toolbar>
+<mat-toolbar color="primary">
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
     <mat-icon>menu</mat-icon>
   </button>
@@ -13,4 +13,39 @@
 </mat-toolbar>
 <div class="container-fluid">
   <router-outlet></router-outlet>
+</div>
+
+<div class="container">
+  <mat-card>
+    <mat-card-title>Productos</mat-card-title>
+    <mat-divider></mat-divider>
+    <div class="card-container">
+      <div class="card-column" *ngFor="let product of products">
+        <mat-card class="product-card">
+          <mat-card-header>
+            <mat-card-title>{{ product.name }}</mat-card-title>
+          </mat-card-header>
+          <img mat-card-lg-image *ngIf="product.images && product.images.length > 0" [src]="getProductImage(product.images[0].route)" alt="{{ product.name }}">
+          <mat-card-content>
+            <p>Precio: {{ product.sale_price | currency }}</p>
+            <div class="stock-selector">
+              <button mat-icon-button (click)="decrementStock(product)">
+                <mat-icon>remove</mat-icon>
+              </button>
+              <input matInput type="number" [(ngModel)]="product.stock" min="1" readonly>
+              <button mat-icon-button (click)="incrementStock(product)">
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button color="primary">
+              <mat-icon>add_shopping_cart</mat-icon>
+              <span>Agregar al carrito</span>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </mat-card>
 </div>
