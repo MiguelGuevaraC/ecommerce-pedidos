@@ -10,17 +10,18 @@
               <mat-card-title>{{ product.name }}</mat-card-title>
               <mat-card-subtitle>{{ product.category.name }}</mat-card-subtitle>
             </mat-card-header>
-            <img mat-card-lg-image *ngIf="product.images && product.images.length > 0" [src]="getProductImage(product.images[0].route)" alt="{{ product.name }}">
-            <mat-card-content>
-              <p>{{ product.description }}</p>
-            </mat-card-content>
-
-            <mat-card-actions>
-              <button mat-button mat-raised-button mat-raised-button>
+            <div class="card-content-container">
+              <img mat-card-lg-image *ngIf="product.images && product.images.length > 0" [src]="getProductImage(product.images[0].route)" alt="{{ product.name }}">
+              <mat-card-content>
+                <p>{{ product.description }}</p>
+              </mat-card-content>
+            </div>
+            <mat-card-actions class="card-actions">
+              <button mat-button mat-raised-button>
                 <mat-icon color="primary">edit</mat-icon>
                 <span>Modificar</span>
               </button>
-              <button mat-button mat-raised-button  mat-raised-button>
+              <button mat-button mat-raised-button>
                 <mat-icon color="warn">delete</mat-icon>
                 <span>Eliminar</span>
               </button>
