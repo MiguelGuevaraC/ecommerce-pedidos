@@ -28,18 +28,17 @@ export const routes: Routes = [
     path: 'admin',
     children: [
       {
+        path: '',
+        redirectTo: 'login',
+        pathMatch: 'full'
+      },
+      {
         path: 'login',
         component: LoginComponent2
       },
       {
-        path: '',
-        component: LayoutComponent,
-        children: [
-          {
-            path: 'products',
-            component: ProductsComponent
-          }
-        ]
+        path: 'products',
+        component: ProductsComponent,
       }
     ]
   }

@@ -21,6 +21,7 @@ import { Category } from '../../../interfaces/category';
 // Services
 import { ProductService } from '../../../services/product.service';
 import { CategoryService } from '../../../services/category.service';
+import { LayoutComponent } from '../layout/layout.component';
 
 @Component({
   selector: 'app-products',
@@ -37,7 +38,8 @@ import { CategoryService } from '../../../services/category.service';
     MatDividerModule,
     MatGridListModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
+    LayoutComponent
   ],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css'
