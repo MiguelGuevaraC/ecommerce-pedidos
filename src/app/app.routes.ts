@@ -1,28 +1,46 @@
 import { Routes } from '@angular/router';
-import { LoginComponent } from './pages/admin/login/login.component';
+import { LandingComponent } from './pages/website/landing/landing.component';
+import { LoginComponent } from './pages/website/login/login.component';
+import { LoginComponent2 } from './pages/admin/login/login.component';
 import { LayoutComponent } from './pages/admin/layout/layout.component';
 import { ProductsComponent } from './pages/admin/products/products.component';
 
 export const routes: Routes = [
   {
-    path:'',
-    redirectTo:'login',
-    pathMatch:'full'
+    path: '',
+    redirectTo: 'webSite/shop',
+    pathMatch: 'full'
   },
   {
-    path:'login',
-    component:LoginComponent
-  },
-  {
-    path:'',
-    component:LayoutComponent,
+    path: 'webSite',
     children: [
       {
-        path: 'products',
-        component: ProductsComponent
+        path: 'shop',
+        component: LandingComponent
+      },
+      {
+        path: 'login',
+        component: LoginComponent
+      }
+    ]
+  },
+  {
+    path: 'admin',
+    children: [
+      {
+        path: 'login',
+        component: LoginComponent2
+      },
+      {
+        path: '',
+        component: LayoutComponent,
+        children: [
+          {
+            path: 'products',
+            component: ProductsComponent
+          }
+        ]
       }
     ]
   }
-
-  // FIN DE LOGIN
 ];

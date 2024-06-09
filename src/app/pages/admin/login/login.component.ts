@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent {
+export class LoginComponent2 {
 
   loginObj: any = {
     userName: '',
@@ -22,7 +22,7 @@ export class LoginComponent {
 
       alert("Bienvenido Administrador")
 
-      this.router.navigateByUrl('/products')
+      this.router.navigateByUrl('admin/products')
 
     } else if (this.loginObj.userName == null && this.loginObj.password == null) {
 
