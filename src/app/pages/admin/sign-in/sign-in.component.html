@@ -1,0 +1,39 @@
+<div class="parent">
+    <div class="container">
+      <div class="left-section"></div>
+      <div class="right-section">
+        <div class="sign-in-container">
+          <form class="sign-in-form">
+            <h2 class="sign-in-title"><i class="fas fa-user-circle"></i>Registrar</h2>
+            <div class="form-control">
+              <i class="fas fa-user icon"></i>
+              <input type="text" name="userName" [(ngModel)]="registerObj.userName" placeholder="Username" id="username" required>
+            </div>
+            <div class="form-control">
+              <i class="fas fa-user icon"></i>
+              <input type="text" name="fatherLastName" [(ngModel)]="registerObj.fatherLastName" placeholder="Apellido Paterno" id="fatherLastName" required>
+            </div>
+            <div class="form-control">
+              <i class="fas fa-user icon"></i>
+              <input type="text" name="motherLastName" [(ngModel)]="registerObj.motherLastName" placeholder="Apellido Materno" id="motherLastName" required>
+            </div>
+            <div class="form-control">
+              <i class="fas fa-phone icon"></i>
+              <input type="text" name="phoneNumber" [(ngModel)]="registerObj.phoneNumber" placeholder="Teléfono" id="phoneNumber" required>
+            </div>
+            <div class="form-control">
+              <i class="fas fa-user icon"></i>
+              <input type="text" name="typeUser" [(ngModel)]="registerObj.typeUser" placeholder="Tipo de Usuario" id="typeUser" required>
+            </div>
+            <div class="form-control">
+              <i class="fas fa-lock icon"></i>
+              <input type="password" name="password" [(ngModel)]="registerObj.password" placeholder="Password" id="password" >
+            </div>
+            <button type="button" (click)="onRegister()">Registrar</button>
+            <p class="">Ya tienes cuenta? <a routerLink="/login">Volver</a></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
