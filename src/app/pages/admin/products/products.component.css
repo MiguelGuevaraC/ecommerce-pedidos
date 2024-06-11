@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.product-list {
+  flex: 2;
+  margin-right: 20px;
+}
+
+.product-form {
+  flex: 1;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card-column {
+  flex: 0 0 calc(33.33% - 20px);
+  margin-top: 20px;
+}
+
+.mat-card {
+  width: 100%;
+}
+
+.card-image {
+  max-width: 400px;
+  margin-bottom: 8px;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.product-form-content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.product-form-content mat-form-field {
+  margin-bottom: 20px;
+}
+
+.add-button-container {
+  display: flex;
+  justify-content: center;
+}

@@ -1,4 +1,5 @@
 import { Category } from "./category"
+import { Image } from "./image"
 
 export interface ProductResponse{
   data: Product[]
@@ -11,5 +12,7 @@ export interface Product {
   purchase_price: number,
   sale_price: number,
   stock: number,
-  category_id: Category
+  category: Category,
+  images: Image[],
+  quantity?: number
 }

@@ -1,16 +1,15 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router, RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, RouterModule, CommonModule],
+  imports: [FormsModule], //[FormsModule]
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent {
+export class LoginComponent2 {
 
   loginObj: any = {
     userName: '',
@@ -23,9 +22,9 @@ export class LoginComponent {
 
       alert("Bienvenido Administrador")
 
-      this.router.navigateByUrl('/products')
+      this.router.navigateByUrl('admin/products')
 
-    } else if (this.loginObj.userName == "" && this.loginObj.password == "") {
+    } else if (this.loginObj.userName == null && this.loginObj.password == null) {
 
       alert("Ingrese sus datos!")
 
