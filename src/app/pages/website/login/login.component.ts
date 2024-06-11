@@ -10,3 +10,5 @@ import { Component } from '@angular/core';
 export class LoginComponent {
 
 }
+
+// TS LOGIN DEL CLIENTE
