@@ -1,0 +1,37 @@
+<h2 mat-dialog-title>Registrarse</h2>
+<mat-dialog-content>
+  <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+    <mat-form-field>
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="username">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Nombres</mat-label>
+      <input matInput formControlName="firstName">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Apellido Paterno</mat-label>
+      <input matInput formControlName="lastNameP">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Apellido Materno</mat-label>
+      <input matInput formControlName="lastNameM">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Teléfono</mat-label>
+      <input matInput formControlName="phone">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Contraseña</mat-label>
+      <input matInput type="password" formControlName="password">
+    </mat-form-field>
+    <mat-dialog-actions>
+      <button mat-button mat-dialog-close>Cancelar</button>
+      <button mat-raised-button color="primary" type="submit">Registrarse</button>
+    </mat-dialog-actions>
+  </form>
+</mat-dialog-content>

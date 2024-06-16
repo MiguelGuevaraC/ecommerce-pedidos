@@ -6,7 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-register',
   standalone: true,
   imports: [
     MatDialogModule,
@@ -16,22 +16,26 @@ import { MatButtonModule } from '@angular/material/button';
     ReactiveFormsModule,
     FormsModule
   ],
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  templateUrl: './sign-in.component.html',
+  styleUrls: ['./sign-in.component.css']
 })
-export class LoginComponent {
-  loginForm: FormGroup;
+export class RegisterComponent {
+  registerForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
-    this.loginForm = this.fb.group({
+    this.registerForm = this.fb.group({
       username: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      phone: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
 
-  onLogin() {
-    if (this.loginForm.valid) {
-      console.log(this.loginForm.value);
+  onRegister() {
+    if (this.registerForm.valid) {
+      console.log(this.registerForm.value);
     }
   }
 }

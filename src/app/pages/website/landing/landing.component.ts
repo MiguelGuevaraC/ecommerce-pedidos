@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginComponent } from '../login/login.component';
+import { RegisterComponent } from '../sign-in/sign-in.component';
 
 // Angular Material
 import { MatButtonModule } from '@angular/material/button';
@@ -12,10 +15,10 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { Product } from '../../../interfaces/product';
 import { ProductService } from '../../../services/product.service';
-import { MatMenuModule } from '@angular/material/menu';
 
 @Component({
   selector: 'app-landing',
@@ -40,7 +43,7 @@ import { MatMenuModule } from '@angular/material/menu';
 export class LandingComponent {
   products: Product[] = [];
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService, private dialog: MatDialog) {}
 
   ngOnInit() {
     this.getProducts();
@@ -73,5 +76,13 @@ export class LandingComponent {
 
   getProductImage(route: string){
     return this.productService.getProductImage(route);
+  }
+
+  openLoginDialog() {
+    this.dialog.open(LoginComponent);
+  }
+
+  openRegisterDialog() {
+    this.dialog.open(RegisterComponent);
   }
 }
