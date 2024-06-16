@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
-import { RegisterComponent } from '../sign-in/sign-in.component';
+import { SignInComponent } from '../sign-in/sign-in.component';
 
 // Angular Material
 import { MatButtonModule } from '@angular/material/button';
@@ -83,6 +83,9 @@ export class LandingComponent {
   }
 
   openRegisterDialog() {
-    this.dialog.open(RegisterComponent);
+    this.dialog.open(SignInComponent, {
+      width: '600px', // Ajusta el ancho aquí
+      panelClass: 'custom-dialog-container'
+    });
   }
 }

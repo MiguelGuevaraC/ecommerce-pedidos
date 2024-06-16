@@ -1,37 +1,41 @@
 <h2 mat-dialog-title>Registrarse</h2>
 <mat-dialog-content>
-  <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
-    <mat-form-field>
+  <form [formGroup]="registerForm" (ngSubmit)="onRegister()" class="form-container">
+    <mat-form-field appearance="fill">
       <mat-label>Username</mat-label>
-      <input matInput formControlName="username">
+      <input matInput formControlName="username" required>
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field appearance="fill">
       <mat-label>Email</mat-label>
-      <input matInput formControlName="email">
+      <input matInput formControlName="email" required>
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field appearance="fill">
       <mat-label>Nombres</mat-label>
-      <input matInput formControlName="firstName">
+      <input matInput formControlName="firstName" required>
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field appearance="fill">
       <mat-label>Apellido Paterno</mat-label>
-      <input matInput formControlName="lastNameP">
+      <input matInput formControlName="lastNameP" required>
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field appearance="fill">
       <mat-label>Apellido Materno</mat-label>
-      <input matInput formControlName="lastNameM">
+      <input matInput formControlName="lastNameM" required>
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field appearance="fill">
       <mat-label>Teléfono</mat-label>
-      <input matInput formControlName="phone">
+      <input matInput formControlName="phone" required>
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field appearance="fill">
       <mat-label>Contraseña</mat-label>
-      <input matInput type="password" formControlName="password">
+      <input matInput type="password" formControlName="password" required>
     </mat-form-field>
-    <mat-dialog-actions>
+    <mat-form-field appearance="fill">
+      <mat-label>Confirmar Contraseña</mat-label>
+      <input matInput type="password" formControlName="confirmPassword" required>
+    </mat-form-field>
+    <mat-dialog-actions align="end">
       <button mat-button mat-dialog-close>Cancelar</button>
-      <button mat-raised-button color="primary" type="submit">Registrarse</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.valid">Registrarse</button>
     </mat-dialog-actions>
   </form>
 </mat-dialog-content>
