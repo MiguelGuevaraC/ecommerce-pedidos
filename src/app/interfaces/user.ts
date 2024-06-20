@@ -5,6 +5,13 @@ export interface User{
   id: number,
   username: string,
   password: string,
-  typeuser_id: TypeUser
-  person_id: Person
+  names: string,
+  motherSurname: string,
+  fatherSurname: string,
+  email: string,
+  address: string,
+  phone: string,
+  typeuser_id: TypeUser,
+  person_id: number,
+  created_at: string
 }
