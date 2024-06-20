@@ -5,6 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogRef } from '@angular/material/dialog';
+import { UserService } from '../../../services/user.service';
 
 
 @Component({
@@ -24,7 +25,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class SignInComponent implements OnInit {
   registerForm: FormGroup; // Define registerForm como FormGroup
 
-  constructor(private fb: FormBuilder, private dialogRef: MatDialogRef<SignInComponent>) {
+  constructor(private userService: UserService, private fb: FormBuilder, private dialogRef: MatDialogRef<SignInComponent>) {
     // Inicializa registerForm en el constructor utilizando FormBuilder
     this.registerForm = this.fb.group({
       username: ['', Validators.required],
@@ -32,6 +33,7 @@ export class SignInComponent implements OnInit {
       firstName: ['', Validators.required],
       lastNameP: ['', Validators.required],
       lastNameM: ['', Validators.required],
+      adress: ['', Validators.required],
       phone: ['', Validators.required],
       password: ['', Validators.required],
       confirmPassword: ['', Validators.required]
@@ -55,8 +57,8 @@ export class SignInComponent implements OnInit {
   // Función llamada cuando se envía el formulario de registro
   onRegister() {
     if (this.registerForm.valid) {
-      // Aquí puedes realizar la lógica para registrar al usuario
-      console.log(this.registerForm.value); // Muestra los valores del formulario en la consola
+      const user = this.registerForm.value;
+      this.userService.signIn(user).subscribe(rpta => { alert("Registrado Correctamente!") });
       this.dialogRef.close(); // Cierra el diálogo después de registrar al usuario
     }
   }
